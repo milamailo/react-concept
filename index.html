@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .center {
+            border: 5px solid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            text-align: center;
+            }
+
+    </style>
     <title>React Concept - Props, State, </title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app" class="center"></div>
 
 
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
-        // Props
-        function Header({title}) {
-            return <h1>{title? title:'Increment'}. 🚀</h1>;
+        // Components are Javascript functions
+        // Props is an object and is read-only information that's passed to components.
+        // State is information that can change over time, usually triggered by user interaction.
+        // Component
+        function Header({title}) { // Props
+            return <h1>{title? title:'Increment'}.</h1>;
           }
+
         // Component
         function HomePage() {
+
             // State
             const [likes, setLikes] = React.useState(0);
-          
+
+            // Event Handler
             function handleClick() {
               setLikes(likes + 1);
             }
@@ -29,10 +47,11 @@
             return (
               <div>
                 <Header title='Increment likes'/>
-                <button onClick={handleClick}>Likes ({likes})</button>
+                <button onClick={handleClick}>👍 ({likes})</button>
               </div>
             );
           }
+          // react-dom
           ReactDOM.render(<HomePage />, app)
     </script>
 </body>
