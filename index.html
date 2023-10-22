@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Concept - Props, State, </title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/jsx">
+        // Props
+        function Header({title}) {
+            return <h1>{title? title:'Increment'}. 🚀</h1>;
+          }
+        // Component
+        function HomePage() {
+            // State
+            const [likes, setLikes] = React.useState(0);
+          
+            function handleClick() {
+              setLikes(likes + 1);
+            }
+          
+            return (
+              <div>
+                <Header title='Increment likes'/>
+                <button onClick={handleClick}>Likes ({likes})</button>
+              </div>
+            );
+          }
+          ReactDOM.render(<HomePage />, app)
+    </script>
+</body>
+</html>
